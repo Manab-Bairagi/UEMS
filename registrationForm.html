@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Registration Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen" style="background-image: url('backiee-119980-landscape.jpg'); background-size: cover; background-position: center center;">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
+        <h1 class="text-2xl font-bold text-green-700 mb-2">Exam Registration Form</h1>
+        <p class="text-gray-600 mb-6">Please fill out the form below to register for your upcoming exams.</p>
+        <form action="payment.html" method="GET">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-gray-700">Full Name <span class="text-red-500">*</span></label>
+                    <input type="text" name="first-name" placeholder="First Name" class="w-full border border-gray-300 p-2 rounded mt-1">
+                </div>
+                <div>
+                    <label class="block text-gray-700">&nbsp;</label>
+                    <input type="text" name="last-name" placeholder="Last Name" class="w-full border border-gray-300 p-2 rounded mt-1">
+                </div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Email Address <span class="text-red-500">*</span></label>
+                <input 
+                type="email" 
+                name="email" 
+                placeholder="example@example.com" 
+                class="w-full border border-gray-300 p-2 rounded mt-1"
+                required
+                aria-label="Enter your email address"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                title="Please enter a valid email address"
+            />
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Phone Number <span class="text-red-500">*</span></label>
+                <input 
+                    type="tel" 
+                    name="phone" 
+                    placeholder="0000000000" 
+                    class="w-full border border-gray-300 p-2 rounded mt-1"
+                    required
+                    pattern="\d{10}" 
+                    title="Please enter a valid phone number with 10 digits (e.g., 0000000000)"
+                />
+                <small class="text-gray-500">Please enter a valid phone number.</small>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Date of Birth <span class="text-red-500">*</span></label>
+                <input 
+            type="date" 
+            name="dob" 
+            class="w-full border border-gray-300 p-2 rounded mt-1"
+            required
+            aria-label="Enter your date of birth"
+            />
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Select Course <span class="text-red-500">*</span></label>
+                <select name="course" id="course" class="w-full border border-gray-300 p-2 rounded mt-1" required>
+                    <option value="">Please Select</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Select Semester <span class="text-red-500">*</span></label>
+                <select name="semester" id="semester" class="w-full border border-gray-300 p-2 rounded mt-1" required>
+                    <option value="">Please Select</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Upload Recent Photograph <span class="text-red-500">*</span></label>
+                <div class="border-2 border-dashed border-green-500 p-4 rounded-lg text-center bg-green-50 relative">
+                    <input 
+                        type="file" 
+                        name="photo" 
+                        class="absolute inset-0 opacity-0 cursor-pointer" 
+                        accept="image/*" 
+                        onchange="validateAndPreviewFile(this, 'photo-preview', 2, ['image/jpeg', 'image/png', 'image/jpg'])"
+                        required
+                    />
+                    <i class="fas fa-upload text-green-500 text-2xl mb-2"></i>
+                    <p class="text-green-500">Upload a File</p>
+                    <p class="text-gray-500">Drag and drop files here</p>
+                </div>
+                <div class="mt-2" id="photo-preview"></div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Upload Signature <span class="text-red-500">*</span></label>
+                <div class="border-2 border-dashed border-green-500 p-4 rounded-lg text-center bg-green-50 relative">
+                    <input 
+                        type="file" 
+                        name="signature" 
+                        class="absolute inset-0 opacity-0 cursor-pointer" 
+                        accept="image/*" 
+                        onchange="validateAndPreviewFile(this, 'signature-preview', 2, ['image/jpeg', 'image/png', 'image/jpg'])"
+                        required
+                    />
+                    <i class="fas fa-upload text-green-500 text-2xl mb-2"></i>
+                    <p class="text-green-500">Upload a File</p>
+                    <p class="text-gray-500">Drag and drop files here</p>
+                </div>
+                <div class="mt-2" id="signature-preview"></div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Upload Previous Semester Result (if any)</label>
+                <div class="border-2 border-dashed border-green-500 p-4 rounded-lg text-center bg-green-50 relative">
+                    <input 
+                        type="file" 
+                        name="previous-result" 
+                        class="absolute inset-0 opacity-0 cursor-pointer" 
+                        accept=".pdf,.doc,.docx,image/*" 
+                        onchange="validateAndPreviewFile(this, 'result-preview', 5, ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png'])"
+                    />
+                    <i class="fas fa-upload text-green-500 text-2xl mb-2"></i>
+                    <p class="text-green-500">Upload a File</p>
+                    <p class="text-gray-500">Drag and drop files here</p>
+                </div>
+                <div class="mt-2" id="result-preview"></div>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700">Please verify that you are human <span class="text-red-500">*</span></label>
+                <div class="flex items-center">
+                    <input type="checkbox" name="is-human" class="mr-2">
+                    <label class="text-gray-700">I am human</label>
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="button" class="bg-gray-500 text-white px-6 py-2 rounded-lg mr-2">Save</button>
+                <button type="submit" class="bg-green-700 text-white px-6 py-2 rounded-lg">Next</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Add the JavaScript here -->
+    <script src="form.js"></script>
+
+</body>
+</html>
